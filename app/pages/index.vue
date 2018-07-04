@@ -7,7 +7,7 @@
 <script>
 export default {
   async mounted() {
-    const response = await this.$axios.get('/user/test');
+    const response = await this.$axios.get('/users/test');
     console.log(response.data);
   },
 };

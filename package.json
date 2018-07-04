@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "run-p agreed-server nuxt:dev",
+    "dev": "run-p agreed:server nuxt:dev",
     "nuxt:dev": "nuxt dev",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "agreed-server": "agreed-server --path ./agreed.js --port 8081"
+    "agreed:server": "run-s prebuild:agreed agreed:server:start",
+    "agreed:server:start": "agreed-server --path ./agreed/index.js --port 8081",
+    "agreed:ui": "agreed-ui --path ./agreed/index.js --port 8082",
+    "prebuild:babel:models": "babel app/models -d agreed/models --presets=env",
+    "prebuild:agreed": "run-s prebuild:agreed:clean prebuild:babel:models",
+    "prebuild:agreed:clean": "rimraf ./agreed/models"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
@@ -22,10 +27,13 @@
     "@vue/test-utils": "^1.0.0-beta.16",
     "agreed": "^3.1.0",
     "autoprefixer": "^8.6.4",
+    "babel-cli": "^6.26.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "babel-preset-env": "^1.7.0",
     "eslint-loader": "^2.0.0",
     "npm-run-all": "^4.1.3",
+    "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.16"
   },
   "browserslist": [
