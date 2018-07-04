@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "nuxt dev",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "agreed-server": "agreed-server --path ./agreed.js --port 3010"
   },
   "dependencies": {
     "nuxt": "^1.4.1",
@@ -17,6 +18,7 @@
     "@vue/cli-service": "^3.0.0-beta.15",
     "@vue/eslint-config-prettier": "^3.0.0-rc.3",
     "@vue/test-utils": "^1.0.0-beta.16",
+    "agreed": "^3.1.0",
     "autoprefixer": "^8.6.4",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
