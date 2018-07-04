@@ -57,5 +57,5 @@ module.exports = {
 
   css: [],
 
-  plugins: [],
+  plugins: ['~/plugins/vuesax'],
 };
