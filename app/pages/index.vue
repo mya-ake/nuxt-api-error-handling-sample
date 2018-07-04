@@ -5,7 +5,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  async mounted() {
+    const response = await this.$axios.get('/user/test');
+    console.log(response.data);
+  },
+};
 </script>
 
 <style scoped>

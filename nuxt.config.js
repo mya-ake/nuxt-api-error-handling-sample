@@ -58,4 +58,10 @@ module.exports = {
   css: [],
 
   plugins: ['~/plugins/vuesax'],
+
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    baseURL: 'http://localhost:8081',
+  },
 };

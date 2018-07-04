@@ -1,22 +1,24 @@
+const headers = {
+  'Access-Control-Allow-Origin': 'http://localhost:8080',
+  'Access-Control-Allow-Headers':
+    'Origin, X-Requested-With, Content-Type, Accept',
+  'Access-Control-Allow-Credentials': true,
+};
+
 module.exports = [
   {
     request: {
       path: '/user/:id',
       method: 'GET',
-      query: {
-        q: '{:someQueryStrings}',
-      },
       values: {
         id: 'yosuke',
         someQueryStrings: 'foo',
       },
     },
     response: {
-      headers: {
-        'x-csrf-token': 'csrf-token',
-      },
+      headers,
       body: {
-        message: '{:greeting} {:id} {:someQueryStrings}',
+        message: '{:greeting} {:id}',
         images: '{:images}',
         themes: '{:themes}',
       },
