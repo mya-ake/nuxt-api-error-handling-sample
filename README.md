@@ -1,0 +1,1 @@
+# nuxt-api-error-handling-sample
