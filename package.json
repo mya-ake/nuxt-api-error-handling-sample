@@ -9,7 +9,8 @@
     "test:unit": "vue-cli-service test:unit",
     "agreed:server": "run-s prebuild:agreed agreed:server:start",
     "agreed:server:start": "agreed-server --path ./agreed/index.js --port 8081",
-    "agreed:ui": "agreed-ui --path ./agreed/index.js --port 8082",
+    "agreed:ui": "run-s prebuild:agreed agreed:ui:start",
+    "agreed:ui:start": "agreed-ui --path ./agreed/index.js --port 8082",
     "prebuild:babel:models": "babel app/models -d agreed/models --presets=env",
     "prebuild:agreed": "run-s prebuild:agreed:clean prebuild:babel:models",
     "prebuild:agreed:clean": "rimraf ./agreed/models"
