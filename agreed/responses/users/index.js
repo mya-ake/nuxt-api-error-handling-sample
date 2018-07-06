@@ -9,6 +9,8 @@ const user = create({
     user: new User({
       id: '{:id}',
       name: `${faker.name.findName()}`,
+      bio: faker.lorem.sentences(),
+      iconUrl: faker.image.avatar(),
     }),
   }),
 });

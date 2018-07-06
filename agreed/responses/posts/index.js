@@ -6,6 +6,8 @@ const { create } = require('./../../helpers/create');
 const user = new User({
   id: '{:id}',
   name: `${faker.name.findName()}`,
+  bio: faker.lorem.sentences(),
+  iconUrl: faker.image.avatar(),
 });
 
 const posts = Array(3)
