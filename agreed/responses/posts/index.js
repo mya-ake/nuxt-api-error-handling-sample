@@ -1,11 +1,11 @@
-const faker = require('faker/locale/ja');
+const faker = require('faker');
 
 const { Post, User, PostsResponse } = require('./../../models');
 const { create } = require('./../../helpers/create');
 
 const user = new User({
   id: '{:id}',
-  name: `${faker.name.lastName()} ${faker.name.firstName()}`,
+  name: `${faker.name.findName()}`,
 });
 
 const posts = Array(3)

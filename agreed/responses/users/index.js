@@ -1,4 +1,4 @@
-const faker = require('faker/locale/ja');
+const faker = require('faker');
 
 const { User, UserResponse, ErrorResponse } = require('./../../models');
 const { create } = require('./../../helpers/create');
@@ -8,7 +8,7 @@ const user = create({
   body: new UserResponse({
     user: new User({
       id: '{:id}',
-      name: `${faker.name.lastName()} ${faker.name.firstName()}`,
+      name: `${faker.name.findName()}`,
     }),
   }),
 });
