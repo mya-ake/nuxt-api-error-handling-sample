@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
+    "material-icons": "^0.2.3",
     "nuxt": "^1.4.1",
     "vuesax": "^3.1.33"
   },
