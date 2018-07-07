@@ -35,7 +35,7 @@ export default {
       error({
         statusCode: response.status,
       });
-      // ここでリターンしないとエラーにある
+      // ここでリターンしないとエラーになる
     }
 
     const { user } = response.data;
