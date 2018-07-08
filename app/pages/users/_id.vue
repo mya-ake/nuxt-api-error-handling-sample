@@ -9,9 +9,18 @@
           vsSize="large"
         />
       </vs-card-header>
-      <vs-card-body>
-        <span>{{ user.bio }}</span>
-      </vs-card-body>
+      <vs-card-body>{{ user.bio }}</vs-card-body>
+    </vs-card>
+    <vs-card>
+      <vs-list>
+        <vs-list-header vsTitle="Posts"/>
+        <vs-list-item 
+          v-for="post in posts"
+          v-bind:key="`post-${post.id}`"
+          v-bind:vsTitle="post.title"
+          vsIcon="subject"
+        />
+      </vs-list>
     </vs-card>
   </div>
 </template>
@@ -35,7 +44,7 @@ export default {
         statusCode: responseUser.status,
         message: responseUser.data.message,
       });
-      // ここでリターンしないとエラーになる
+      // ここでリターンしないとハンドリングできないエラーになる
       return {};
     }
 

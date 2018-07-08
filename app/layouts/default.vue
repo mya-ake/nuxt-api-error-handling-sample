@@ -15,14 +15,21 @@
       vsParent="#layout"
       class="sidebar"
     >
-      <vs-sidebar-item v-bind:vsActive="actives===1" vsIcon="question_answer" v-on:click="actives=1">
-        Index
+      <vs-sidebar-item
+        v-bind:vsActive="actives === 1"
+        vsIcon="account_circle" 
+        to="/users/1"
+        v-on:click="actives = 1"
+      >
+        /users/1
       </vs-sidebar-item>
-      <vs-sidebar-item v-bind:vsActive="actives===2" vsIcon="question_answer" v-on:click="actives=2">
-        Error 1
-      </vs-sidebar-item>
-      <vs-sidebar-item v-bind:vsActive="actives===3" vsIcon="question_answer" v-on:click="actives=3">
-        Error 2
+      <vs-sidebar-item
+        v-bind:vsActive="actives === 2"
+        vsIcon="account_circle" 
+        to="/users/0"
+        v-on:click="actives = 2"
+      >
+        /users/0 (Error)
       </vs-sidebar-item>
     </vs-sidebar>
   </div>
