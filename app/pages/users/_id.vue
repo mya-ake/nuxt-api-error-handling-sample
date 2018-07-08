@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { UserResponse, PostsResponse } from '~/models';
+
 export default {
   validate({ params }) {
     const { id } = params;
@@ -25,22 +27,32 @@ export default {
 
   async asyncData({ app, params, error }) {
     const { id } = params;
-    console.log(id);
-    const response = await app.$axios.get(`/users/${id}`).catch(err => {
-      return err.response;
-    });
+    const responseUser = await app.$_resources.get(`/users/${id}`);
+    responseUser.toModel(UserResponse);
 
-    console.log(response);
-    if (response.status !== 200) {
+    if (responseUser.isError) {
       error({
-        statusCode: response.status,
+        statusCode: responseUser.status,
+        message: responseUser.data.message,
       });
       // ここでリターンしないとエラーになる
+      return {};
     }
 
-    const { user } = response.data;
+    const { user } = responseUser.data;
 
-    const responsePosts = await app.$axios.get(`/users/${user.id}/posts`);
+    const responsePosts = await app.$_resources.get(`/users/${user.id}/posts`);
+    responsePosts.toModel(PostsResponse);
+
+    if (responsePosts.isError) {
+      error({
+        statusCode: responsePosts.status,
+        message: responsePosts.data.message,
+      });
+      // ここでリターンしないとエラーになる
+      return {};
+    }
+
     const { posts } = responsePosts.data;
     return {
       user,

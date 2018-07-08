@@ -57,7 +57,7 @@ module.exports = {
 
   css: ['~/assets/styles.css'],
 
-  plugins: ['~/plugins/vuesax'],
+  plugins: ['~/plugins/vuesax', '~/plugins/resources'],
 
   modules: ['@nuxtjs/axios'],
 
