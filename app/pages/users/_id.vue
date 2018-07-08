@@ -58,7 +58,6 @@ export default {
         statusCode: responsePosts.status,
         message: responsePosts.data.message,
       });
-      // ここでリターンしないとエラーになる
       return {};
     }
 
