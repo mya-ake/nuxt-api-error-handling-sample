@@ -45,7 +45,7 @@ export default {
         message: responseUser.data.message,
       });
       // ここでリターンしないとハンドリングできないエラーになる
-      return {};
+      return;
     }
 
     const { user } = responseUser.data;
@@ -58,7 +58,7 @@ export default {
         statusCode: responsePosts.status,
         message: responsePosts.data.message,
       });
-      return {};
+      return;
     }
 
     const { posts } = responsePosts.data;
