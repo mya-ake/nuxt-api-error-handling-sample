@@ -3,7 +3,7 @@ import { build } from '~/lib/resources';
 
 import { Response } from '~/lib/Response';
 
-const responseBuiler = response => {
+const responseBuilder = response => {
   return new Response(response);
 };
 
@@ -12,5 +12,5 @@ export default (ctx, inject) => {
     baseURL: 'http://localhost:8081',
   });
 
-  inject('_resources', build({ axios: client, responseBuiler }));
+  inject('_resources', build({ axios: client, responseBuilder }));
 };

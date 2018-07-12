@@ -1,7 +1,7 @@
 class Resources {
-  constructor({ axios, responseBuiler = null }) {
+  constructor({ axios, responseBuilder = null }) {
     this.axios = axios;
-    this._responseBuiler = responseBuiler;
+    this._responseBuilder = responseBuilder;
   }
 
   async get(url, config) {
@@ -12,13 +12,13 @@ class Resources {
   }
 
   _buildResponse(response) {
-    if (typeof this._responseBuiler !== 'function') {
+    if (typeof this._responseBuilder !== 'function') {
       return response;
     }
-    return this._responseBuiler(response);
+    return this._responseBuilder(response);
   }
 }
 
-export const build = ({ axios, responseBuiler }) => {
-  return new Resources({ axios, responseBuiler });
+export const build = ({ axios, responseBuilder }) => {
+  return new Resources({ axios, responseBuilder });
 };
