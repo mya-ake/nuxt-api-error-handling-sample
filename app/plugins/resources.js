@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { build } from '~/lib/resources';
+import { Resources } from '~/lib/resources';
 
 import { Response } from '~/lib/Response';
 
@@ -12,5 +12,5 @@ export default (ctx, inject) => {
     baseURL: 'http://localhost:8081',
   });
 
-  inject('_resources', build({ axios: client, responseBuilder }));
+  inject('_resources', new Resources({ axios: client, responseBuilder }));
 };
