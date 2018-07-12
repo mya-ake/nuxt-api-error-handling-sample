@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Resources } from '~/lib/resources';
-
 import { Response } from '~/lib/Response';
 
 const responseBuilder = response => {
@@ -12,5 +11,6 @@ export default (ctx, inject) => {
     baseURL: 'http://localhost:8081',
   });
 
-  inject('_resources', new Resources({ axios: client, responseBuilder }));
+  const resources = new Resources({ axios: client, responseBuilder });
+  inject('_resources', resources);
 };
